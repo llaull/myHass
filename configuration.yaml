@@ -1,0 +1,38 @@
+
+# Configure a default setup of Home Assistant (frontend, api, etc)
+default_config:
+
+# pour mettre le l IHM avec ui-loveloce.yml
+lovelace:
+  mode: yaml
+
+
+frontend:
+  # themes
+  themes: !include_dir_merge_named themes
+
+# Hue pont
+hue:
+  bridges:
+    - host: 192.168.1.9
+      allow_unreachable: true
+      allow_hue_groups: true
+
+
+influxdb:
+  host: 192.168.1.104
+  port: 8086 
+  database: homeassistance
+  username: homeassistance
+  password: homeassistance
+  max_retries: 3
+  default_measurement: state
+
+
+# Text to speech
+tts:
+  - platform: google_translate
+
+group: !include groups.yaml
+automation: !include automations.yaml
+script: !include scripts.yaml

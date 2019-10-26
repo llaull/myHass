@@ -1,0 +1,136 @@
+{
+    "data": {
+        "credentials": [
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "admin"
+                },
+                "id": "79d5cbcf0d374ae4959e862ce75854cf",
+                "user_id": "b8a6ba29c0f94789bb3b8fd82169a9cd"
+            },
+            {
+                "auth_provider_id": null,
+                "auth_provider_type": "homeassistant",
+                "data": {
+                    "username": "tablet"
+                },
+                "id": "da3a3781fc264297bec7a5cdf1498083",
+                "user_id": "cad267ad3a0c4d869158733015829905"
+            }
+        ],
+        "groups": [
+            {
+                "id": "system-admin",
+                "name": "Administrators"
+            },
+            {
+                "id": "system-users",
+                "name": "Users"
+            },
+            {
+                "id": "system-read-only",
+                "name": "Read Only"
+            }
+        ],
+        "refresh_tokens": [
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": null,
+                "client_name": null,
+                "created_at": "2019-10-24T07:03:26.996180+00:00",
+                "id": "2f44a2582e6a4341a4dc1d8a57aa1ad9",
+                "jwt_key": "2485cc1ef872ad328aec05c8f02355ec15cc96c32fdbe99532e4a9211f2cdb9595a3651f98c35abc7056c33e419b55de73dde069fac02ad86f4f668297a96e2b",
+                "last_used_at": "2019-10-26T15:32:23.535665+00:00",
+                "last_used_ip": "172.30.32.2",
+                "token": "4211a5aeaa7ad9add00af285166d21a7d10889c06f81d1149e0bfa6113e44054434b4716849cd2b46599e55183102d2779cc16179659bbfe207fe6fe061f03b3",
+                "token_type": "system",
+                "user_id": "e5b5e578147645a4a873719734cebb6f"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": "http://192.168.1.143:8123/",
+                "client_name": null,
+                "created_at": "2019-10-24T07:04:30.679840+00:00",
+                "id": "d82aef55a79e496b9b78d9d3c509267f",
+                "jwt_key": "7ca7a78d480ec127007a291b6658dd5b37c7a17c4111d68464c3227977ab7e7ab254b23404c8a7301f251029cce2e8ef1afeb0d37c0add441c09e97c521aba93",
+                "last_used_at": "2019-10-26T15:32:16.324116+00:00",
+                "last_used_ip": "192.168.1.115",
+                "token": "5beb5930f54d06fb09d27f89bbf8cb00f2a578d14be866de7c75d6d165e8797c52dc0068fafe1b070d6a28c8b22f9f99127e2676198e6c1bb57cc3f29658023b",
+                "token_type": "normal",
+                "user_id": "b8a6ba29c0f94789bb3b8fd82169a9cd"
+            },
+            {
+                "access_token_expiration": 1800.0,
+                "client_icon": null,
+                "client_id": null,
+                "client_name": null,
+                "created_at": "2019-10-26T15:32:45.665813+00:00",
+                "id": "cb8e95af42cc481bb95857526ebe3e46",
+                "jwt_key": "73be81021158baa1e91225fb8f4142ac09142a7a11119c6aea9a6e8fbd585e8b9a03a194d3742cf2d61b9aad4a21c91027cf3a615aa8e915eedc185a5a4dde2b",
+                "last_used_at": null,
+                "last_used_ip": null,
+                "token": "071abb389e83c9ec1c82550b924f27c0271d34aefb630c8f02625fb839efef02592a734a86c1e9c2d620a6e8e5b828caac81e0dae961655ed7d6abb4e626c1b1",
+                "token_type": "system",
+                "user_id": "00703bb5b455490a86113c8302afdcd9"
+            }
+        ],
+        "users": [
+            {
+                "group_ids": [
+                    "system-admin"
+                ],
+                "id": "00c9718db921487e978ad835b6d3cfe5",
+                "is_active": true,
+                "is_owner": false,
+                "name": "Home Assistant Cloud",
+                "system_generated": true
+            },
+            {
+                "group_ids": [
+                    "system-admin"
+                ],
+                "id": "e5b5e578147645a4a873719734cebb6f",
+                "is_active": true,
+                "is_owner": false,
+                "name": "Hass.io",
+                "system_generated": true
+            },
+            {
+                "group_ids": [
+                    "system-admin"
+                ],
+                "id": "b8a6ba29c0f94789bb3b8fd82169a9cd",
+                "is_active": true,
+                "is_owner": true,
+                "name": "admin",
+                "system_generated": false
+            },
+            {
+                "group_ids": [
+                    "system-users"
+                ],
+                "id": "cad267ad3a0c4d869158733015829905",
+                "is_active": true,
+                "is_owner": false,
+                "name": "tablet",
+                "system_generated": false
+            },
+            {
+                "group_ids": [
+                    "system-admin"
+                ],
+                "id": "00703bb5b455490a86113c8302afdcd9",
+                "is_active": true,
+                "is_owner": false,
+                "name": "Home Assistant Cast",
+                "system_generated": true
+            }
+        ]
+    },
+    "key": "auth",
+    "version": 1
+}
