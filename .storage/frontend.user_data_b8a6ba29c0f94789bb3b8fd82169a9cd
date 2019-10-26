@@ -2,6 +2,9 @@
     "data": {
         "core": {
             "showAdvanced": true
+        },
+        "language": {
+            "language": "fr"
         }
     },
     "key": "frontend.user_data_b8a6ba29c0f94789bb3b8fd82169a9cd",

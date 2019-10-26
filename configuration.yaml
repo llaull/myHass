@@ -1,38 +1,75 @@
-
 # Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
-# pour mettre le l IHM avec ui-loveloce.yml
+############################################################
+##                                                        ##
+##                     HOME ASSISTANT                     ##
+##                                                        ##
+############################################################
+
+homeassistant:
+  # Name of the location where Home Assistant is running
+  name: Home
+  # Location required to calculate the time the sun rises and sets
+  latitude: 44.84329898310464
+  longitude: -0.6600131730162957
+  # Impacts weather/sunrise data (altitude above sea level in meters)
+  elevation: 39
+  # metric for Metric, imperial for Imperial
+  unit_system: metric
+  # Pick yours from here
+  time_zone: Europe/Paris
+
+############################################################
+##                                                        ##
+##                        LOVELACE                        ##
+##                                                        ##
+############################################################
 lovelace:
   mode: yaml
 
-
+############################################################
+##                                                        ##
+##                      FRONTEND                          ##
+##                                                        ##
+############################################################
 frontend:
-  # themes
   themes: !include_dir_merge_named themes
 
-# Hue pont
+############################################################
+##                                                        ##
+##                     Hue pont                           ##
+##                                                        ##
+############################################################
 hue:
   bridges:
     - host: 192.168.1.9
       allow_unreachable: true
       allow_hue_groups: true
 
-
+############################################################
+##                                                        ##
+##                     influxdb                           ##
+##                                                        ##
+############################################################
 influxdb:
   host: 192.168.1.104
-  port: 8086 
+  port: 8086
   database: homeassistance
   username: homeassistance
   password: homeassistance
   max_retries: 3
   default_measurement: state
 
-
 # Text to speech
 tts:
   - platform: google_translate
 
+ ############################################################
+ ##                                                        ##
+ ##                     INCLUDE YAML                       ##
+ ##                                                        ##
+ ############################################################
 group: !include groups.yaml
 automation: !include automations.yaml
 script: !include scripts.yaml
