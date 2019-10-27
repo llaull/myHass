@@ -1,0 +1,6 @@
+sensor.chambre:
+  friendly_name: Bedroom laurent
+sensor.balcon:
+  friendly_name: Balcony
+sensor.cuisine:
+  friendly_name: Kitchen

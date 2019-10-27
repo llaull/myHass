@@ -1,0 +1,12 @@
+# include:
+#
+#   domains:
+#
+#   entities:
+
+# 
+# exclude:
+#   domains:
+#     - light
+#     - script
+#     - sensor
