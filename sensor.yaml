@@ -4,8 +4,8 @@
 ##                    requete sur srv test                ##
 ############################################################
   - platform: influxdb
-    host: 192.168.1.104
-    port: 32768
+    host: !secret INFLUXDB_IP
+    port: !secret INFLUXDB_PORT
     username: homeassistance
     password: homeassistance
     queries:
