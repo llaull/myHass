@@ -51,7 +51,19 @@ views:
           line_color: var(--accent-color)
           line_width: 8
           font_size: 75
-
       - type: light
         entity: light.ruban
         name: My Bed
+
+  - icon: mdi:forklift
+    title: light
+    path: lights
+
+    cards:
+      - type: light
+        entity: light.shared_lights
+        name: Parties communes
+
+      - type: light
+        entity: light.salon_lights
+        name: Salon
