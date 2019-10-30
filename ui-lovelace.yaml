@@ -34,3 +34,7 @@ views:
           line_color: var(--accent-color)
           line_width: 8
           font_size: 75
+
+      - type: light
+        entity: light.ruban
+        name: My Bed
