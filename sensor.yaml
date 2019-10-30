@@ -36,3 +36,11 @@
         measurement: '"cpu_load_short"'
         field: '"Température"'
         database: plup
+
+############################################################
+## https://github.com/custom-cards/aftership-card         ##
+##                     aftership                          ##
+##                                                        ##
+############################################################
+  - platform: aftership
+    api_key: !secret AFTERSHIP_API_KEY
