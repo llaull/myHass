@@ -9,7 +9,8 @@ resources:
   - url: /local/aftership-card.js
     type: module
 
-
+  - url: /local/custom-lovelace/weather-card/weather-card.js
+    type: module
 
 views:
 
@@ -55,3 +56,11 @@ views:
       - type: light
         entity: light.ruban
         name: My Bed
+
+      - type: custom:weather-card
+        entity: weather.maison
+        icons: "/local/custom-lovelace/weather-card/icones/animated/"
+        name: Home
+        # current: true
+        # details: false
+        # forecast: true
