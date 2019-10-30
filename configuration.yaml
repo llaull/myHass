@@ -42,7 +42,7 @@ hue:
   bridges:
     - host: !secret HUE_BRIDGE_IP
       allow_unreachable: true
-      allow_hue_groups: true
+      allow_hue_groups: false
 
 ############################################################
 ##                                                        ##
@@ -72,6 +72,7 @@ tts:
  ##                                                        ##
  ############################################################
 group: !include groups.yaml
+light: !include lights.yaml
 automation: !include automations.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
