@@ -44,3 +44,19 @@
 ############################################################
   - platform: aftership
     api_key: !secret AFTERSHIP_API_KEY
+
+  - platform: darksky
+    api_key: !secret DARKSKY_API_KEY
+    forecast:
+      - 0
+      - 1
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - uv_index
+      - nearest_storm_distance
+      - alerts
+    name: ozamiz
+    latitude: 8.132234
+    longitude: 123.830935

@@ -5,8 +5,11 @@
 #   entities:
 
 # 
-# exclude:
-#   domains:
-#     - light
-#     - script
-#     - sensor
+exclude:
+  entities:
+    - sensor.ozamiz_uv_index
+    - sensor.ozamiz_uv_index_0d
+    - sensor.ozamiz_uv_index_1d
+    
+    # fake sensor 
+    - sensor.daylight
