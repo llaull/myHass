@@ -1,69 +1,15 @@
-title: My connect Home
-
 resources:
-  # pour des card avec graph
+  # - !include lovelace/resources/modules.yaml
   - url: /local/mini-graph-card-bundle.js?v=0.8.1
     type: module
 
   # pour le module suivis des colis
   - url: /local/aftership-card.js
     type: module
-
-
+  
+title: My connect Home
 
 views:
-
-  - icon: mdi:forklift
-    title: Second view
-    path: home
-
-    cards:
-      - type: 'custom:aftership-card'
-        entity: sensor.aftership
-        title: Packages
-
-  - icon: mdi:home-assistant
-    title: Second view
-    cards:
-      - type: horizontal-stack
-        cards:
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.balcon
-          line_color: blue
-          line_width: 8
-          font_size: 75
-          color_thresholds:
-          - value: 10
-            color: "#33F0FF"
-          - value: 20
-            color: green
-          - value: 30
-            color: "#c0392b"
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.cuisine
-          line_color: '#e74c3c'
-          line_width: 8
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.chambre
-          line_color: var(--accent-color)
-          line_width: 8
-          font_size: 75
-      - type: light
-        entity: light.ruban
-        name: My Bed
-
-  - icon: mdi:forklift
-    title: light
-    path: lights
-
-    cards:
-      - type: light
-        entity: light.shared_lights
-        name: Parties communes
-
-      - type: light
-        entity: light.salon_lights
-        name: Salon
+  - !include lovelace/00_home_view.yaml
+  - !include lovelace/10_home_ge.yaml
+  - !include lovelace/20_lights_view.yaml

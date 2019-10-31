@@ -1,0 +1,10 @@
+title: light
+icon: mdi:lightbulb-on-outline
+path: lights
+
+cards:
+  - type: light
+    entity: light.shared_lights
+
+  - type: light
+    entity: light.salon_lights
