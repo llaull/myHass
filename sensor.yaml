@@ -18,15 +18,6 @@
         measurement: '"cpu_load_short"'
         field: '"Température"'
         database: plup
-      # requete pour la Température de chambre
-      - name: chambre
-        unit_of_measurement: '°C'
-        value_template: '{{ value | round(1) }}'
-        group_function: last
-        where: '"device" = ''Hue temperature sensor 1'''
-        measurement: '"cpu_load_short"'
-        field: '"Température"'
-        database: plup
       # requete pour la Température de chambre miFlore_02
       - name: cuisine
         unit_of_measurement: '°C'

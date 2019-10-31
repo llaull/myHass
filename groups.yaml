@@ -1,5 +1,0 @@
-  salon_color_light:
-    name: lampes couleur salon
-    entities:
-      - light.hue_go_1
-      - light.hue_go_2

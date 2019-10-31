@@ -4,3 +4,5 @@ sensor.balcon:
   friendly_name: Balcony
 sensor.cuisine:
   friendly_name: Kitchen
+sensor.buffet_temperature:
+  friendly_name: Bedroom laurent
