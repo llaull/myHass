@@ -6,6 +6,13 @@ resources:
   # pour le module suivis des colis
   - url: /local/aftership-card.js
     type: module
+
+  - url: /local/custom-lovelace/weather-card/weather-card.js
+    type: module
+
+  # pour des card la meteo 
+  - url: /local/custom-lovelace/weather-card/weather-dark-sky-card.js?v=7.015
+    type: module
   
 title: My connect Home
 
