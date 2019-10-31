@@ -9,9 +9,3 @@
   longitude: !secret HA_LONG
   radius: 50
   icon: mdi:home
-
-- name: kine
-  latitude: 44.8407604
-  longitude: -0.5802664
-  radius: 50
-  icon: mdi:dumbbell
