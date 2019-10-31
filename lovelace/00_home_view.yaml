@@ -1,0 +1,8 @@
+title: My connect Home
+icon: mdi:forklift
+path: home
+
+cards:
+  - type: 'custom:aftership-card'
+    entity: sensor.aftership
+    title: Packages
