@@ -45,18 +45,44 @@
   - platform: aftership
     api_key: !secret AFTERSHIP_API_KEY
 
+############################################################
+## https://github.com/iammexx/home-assistant-config/tree/master/ui/darksky         ##
+## https://www.home-assistant.io/integrations/darksky#sunset_time
+##                     darksky                            ##
+##                                                        ##
+############################################################
   - platform: darksky
     api_key: !secret DARKSKY_API_KEY
     forecast:
       - 0
       - 1
+      - 2
+      - 3
+      - 4
+      - 5
     monitored_conditions:
-      - summary
       - icon
+      - summary
+      - nearest_storm_bearing
+      - humidity
       - temperature
+      - temperature_high
+      - temperature_low
+      - apparent_temperature
+      - wind_speed
+      - wind_bearing
+      - precip_type
+      - precip_probability
+      - precip_accumulation
+      - precip_intensity
       - uv_index
+      - daily_summary
+      - pressure
+      - visibility
       - nearest_storm_distance
       - alerts
+      # - sunrise_time 
+      # - sunset_time
     name: ozamiz
     latitude: 8.132234
     longitude: 123.830935
