@@ -36,3 +36,9 @@ ozw_log.txt
 .PROD HASS
 
 glances/
+
+.HA_VERSION
+
+.idea/
+
+themes
