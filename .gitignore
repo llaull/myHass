@@ -32,3 +32,7 @@ tts
 # Log files
 home-assistant.log
 ozw_log.txt
+
+.PROD HASS
+
+glances/

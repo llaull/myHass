@@ -1,40 +1,22 @@
-title: My connect Home
-
 resources:
+  # - !include lovelace/resources/modules.yaml
   - url: /local/mini-graph-card-bundle.js?v=0.8.1
     type: module
 
-views:
-  - icon: mdi:home-assistant
-    title: Second view
-    cards:
-      - type: horizontal-stack
-        cards:
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.balcon
-          line_color: blue
-          line_width: 8
-          font_size: 75
-          color_thresholds:
-          - value: 10
-            color: "#33F0FF"
-          - value: 20
-            color: green
-          - value: 30
-            color: "#c0392b"
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.cuisine
-          line_color: '#e74c3c'
-          line_width: 8
-        - type: custom:mini-graph-card
-          entities:
-            - sensor.chambre
-          line_color: var(--accent-color)
-          line_width: 8
-          font_size: 75
+  # pour le module suivis des colis
+  - url: /local/aftership-card.js
+    type: module
 
-      - type: light
-        entity: light.ruban
-        name: My Bed
+  - url: /local/custom-lovelace/weather-card/weather-card.js
+    type: module
+
+  # pour des card la meteo 
+  - url: /local/custom-lovelace/weather-card/weather-dark-sky-card.js?v=7.015
+    type: module
+  
+title: My connect Home
+
+views:
+  - !include lovelace/00_home_view.yaml
+  - !include lovelace/10_home_ge.yaml
+  - !include lovelace/20_lights_view.yaml

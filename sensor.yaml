@@ -4,8 +4,8 @@
 ##                    requete sur srv test                ##
 ############################################################
   - platform: influxdb
-    host: 192.168.1.104
-    port: 32768
+    host: !secret INFLUXDB_IP
+    port: !secret INFLUXDB_PORT
     username: homeassistance
     password: homeassistance
     queries:
@@ -18,15 +18,6 @@
         measurement: '"cpu_load_short"'
         field: '"Température"'
         database: plup
-      # requete pour la Température de chambre
-      - name: chambre
-        unit_of_measurement: '°C'
-        value_template: '{{ value | round(1) }}'
-        group_function: last
-        where: '"device" = ''Hue temperature sensor 1'''
-        measurement: '"cpu_load_short"'
-        field: '"Température"'
-        database: plup
       # requete pour la Température de chambre miFlore_02
       - name: cuisine
         unit_of_measurement: '°C'
@@ -36,3 +27,53 @@
         measurement: '"cpu_load_short"'
         field: '"Température"'
         database: plup
+
+############################################################
+## https://github.com/custom-cards/aftership-card         ##
+##                     aftership                          ##
+##                                                        ##
+############################################################
+  - platform: aftership
+    api_key: !secret AFTERSHIP_API_KEY
+
+############################################################
+## https://github.com/iammexx/home-assistant-config/tree/master/ui/darksky         ##
+## https://www.home-assistant.io/integrations/darksky#sunset_time
+##                     darksky                            ##
+##                                                        ##
+############################################################
+  - platform: darksky
+    api_key: !secret DARKSKY_API_KEY
+    forecast:
+      - 0
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    monitored_conditions:
+      - icon
+      - summary
+      - nearest_storm_bearing
+      - humidity
+      - temperature
+      - temperature_high
+      - temperature_low
+      - apparent_temperature
+      - wind_speed
+      - wind_bearing
+      - precip_type
+      - precip_probability
+      - precip_accumulation
+      - precip_intensity
+      - uv_index
+      - daily_summary
+      - pressure
+      - visibility
+      - nearest_storm_distance
+      - alerts
+      # - sunrise_time 
+      # - sunset_time
+    name: ozamiz
+    latitude: 8.132234
+    longitude: 123.830935

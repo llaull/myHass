@@ -1,0 +1,37 @@
+title: Second view
+icon: mdi:home-assistant
+path: none
+
+cards:
+  - type: horizontal-stack
+    cards:
+    - type: custom:mini-graph-card
+      entities:
+        - sensor.balcon
+      line_color: blue
+      line_width: 8
+      font_size: 75
+      color_thresholds:
+      - value: 10
+        color: "#33F0FF"
+      - value: 20
+        color: green
+      - value: 30
+        color: "#c0392b"
+
+    - type: custom:mini-graph-card
+      entities:
+        - sensor.cuisine
+      line_color: '#e74c3c'
+      line_width: 8
+
+    - type: custom:mini-graph-card
+      entities:
+        - sensor.buffet_temperature
+      line_color: var(--accent-color)
+      line_width: 8
+      font_size: 75
+      
+  - type: light
+    entity: light.ruban
+    name: My Bed

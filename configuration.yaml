@@ -1,4 +1,3 @@
-# Configure a default setup of Home Assistant (frontend, api, etc)
 default_config:
 
 ############################################################
@@ -8,16 +7,13 @@ default_config:
 ############################################################
 
 homeassistant:
-  # Name of the location where Home Assistant is running
-  name: Home
-  # Location required to calculate the time the sun rises and sets
-  latitude: 44.84329898310464
-  longitude: -0.6600131730162957
-  # Impacts weather/sunrise data (altitude above sea level in meters)
+  name: !secret HA_NAME
+
+  latitude: !secret HA_LAT
+  longitude: !secret HA_LONG
   elevation: 39
-  # metric for Metric, imperial for Imperial
+
   unit_system: metric
-  # Pick yours from here
   time_zone: Europe/Paris
 
   customize: !include customize.yaml
@@ -44,9 +40,9 @@ frontend:
 ############################################################
 hue:
   bridges:
-    - host: 192.168.1.9
+    - host: !secret HUE_BRIDGE_IP
       allow_unreachable: true
-      allow_hue_groups: true
+      allow_hue_groups: false
 
 ############################################################
 ##                                                        ##
@@ -54,8 +50,8 @@ hue:
 ##                                                        ##
 ############################################################
 influxdb:
-  host: 192.168.1.104
-  port: 8086
+  host: !secret INFLUXDB_IP
+  port: !secret INFLUXDB_PORT
   database: homeassistance
   username: homeassistance
   password: homeassistance
@@ -70,14 +66,27 @@ influxdb:
 tts:
   - platform: google_translate
 
+############################################################
+##                                                        ##
+##                     weather                           ##
+##                                                        ##
+############################################################
+weather:
+  - platform: darksky
+    api_key: !secret DARKSKY_API_KEY
+    mode: daily
+
  ############################################################
  ##                                                        ##
  ##                     INCLUDE YAML                       ##
  ##                                                        ##
  ############################################################
 group: !include groups.yaml
+light: !include lights.yaml
 automation: !include automations.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
 recorder: !include recorder.yaml
 history: !include history.yaml
+zone: !include zones.yaml
+# person: !include persons.yaml
