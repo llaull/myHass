@@ -10,6 +10,12 @@ exclude:
     - sensor.ozamiz_uv_index
     - sensor.ozamiz_uv_index_0d
     - sensor.ozamiz_uv_index_1d
-    
+    - sensor.ozamiz_icon
+    - sensor.ozamiz_icon_0d
+    - sensor.ozamiz_icon_1d
+    - sensor.ozamiz_summary
+    - sensor.ozamiz_summary_0d
+    - sensor.ozamiz_summary_1d
+
     # fake sensor 
     - sensor.daylight
