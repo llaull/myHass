@@ -18,17 +18,20 @@ cards:
         color: green
       - value: 30
         color: "#c0392b"
+
     - type: custom:mini-graph-card
       entities:
         - sensor.cuisine
       line_color: '#e74c3c'
       line_width: 8
+
     - type: custom:mini-graph-card
       entities:
-        - sensor.chambre
+        - sensor.buffet_temperature
       line_color: var(--accent-color)
       line_width: 8
       font_size: 75
+      
   - type: light
     entity: light.ruban
     name: My Bed
