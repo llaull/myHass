@@ -77,3 +77,4 @@
     name: ozamiz
     latitude: 8.132234
     longitude: 123.830935
+    scan_interval: 300

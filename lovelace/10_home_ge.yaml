@@ -27,7 +27,7 @@ cards:
 
     - type: custom:mini-graph-card
       entities:
-        - sensor.buffet_temperature
+        - sensor.temperature_3
       line_color: var(--accent-color)
       line_width: 8
       font_size: 75
