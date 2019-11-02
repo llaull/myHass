@@ -1,8 +1,8 @@
-sensor.chambre:
-  friendly_name: Bedroom laurent
-sensor.balcon:
+sensor.xiaomi_miflora_03_temperature:
   friendly_name: Balcony
-sensor.cuisine:
+
+plant.xiaomi_miflora_01:
   friendly_name: Kitchen
-sensor.buffet_temperature:
+
+sensor.temperature_3:
   friendly_name: Bedroom laurent
