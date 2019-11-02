@@ -1,7 +1,7 @@
 sensor.xiaomi_miflora_03_temperature:
   friendly_name: Balcony
 
-plant.xiaomi_miflora_01:
+sensor.xiaomi_miflora_01_temperature:
   friendly_name: Kitchen
 
 sensor.temperature_3:

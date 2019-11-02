@@ -1,34 +1,4 @@
 ############################################################
-##                                                        ##
-##                     influxdb                           ##
-##                    requete sur srv test                ##
-############################################################
-  - platform: influxdb
-    host: !secret INFLUXDB_IP
-    port: !secret INFLUXDB_PORT
-    username: homeassistance
-    password: homeassistance
-    queries:
-      # requete pour la Température de dehors miFlore_01
-      - name: balcon
-        unit_of_measurement: '°C'
-        value_template: '{{ value | round(1) }}'
-        group_function: last
-        where: '"device" = ''Test'''
-        measurement: '"cpu_load_short"'
-        field: '"Température"'
-        database: plup
-      # requete pour la Température de chambre miFlore_02
-      - name: cuisine
-        unit_of_measurement: '°C'
-        value_template: '{{ value | round(1) }}'
-        group_function: last
-        where: '"device" = ''petit arbre'''
-        measurement: '"cpu_load_short"'
-        field: '"Température"'
-        database: plup
-
-############################################################
 ## https://github.com/custom-cards/aftership-card         ##
 ##                     aftership                          ##
 ##                                                        ##
