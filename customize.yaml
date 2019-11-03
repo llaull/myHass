@@ -12,6 +12,3 @@ binary_sensor.openclose_5:
 
 binary_sensor.openclose_6:
    friendly_name: module de test
-
-plant.xiaomi_miflora_01:
-   friendly_name: Ficus Banjamina

@@ -13,6 +13,9 @@ resources:
   # pour des card la meteo 
   - url: /local/custom-lovelace/weather-card/weather-dark-sky-card.js?v=7.015
     type: module
+
+  - url: /local/mini-media-player-bundle.js?v=1.4.2
+    type: module    
   
 title: My connect Home
 

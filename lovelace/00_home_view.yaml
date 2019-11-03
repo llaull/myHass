@@ -12,6 +12,11 @@ cards:
     icons: "/local/custom-lovelace/weather-card/icones/animated/"
     name: Merignac
 
+  - type: custom:weather-card
+    entity: weather.ozamiz
+    icons: "/local/custom-lovelace/weather-card/icones/animated/"
+    name: Ozamiz
+
   - type: 'custom:dark-sky-weather-card'
     entity_current_conditions: sensor.ozamiz_icon
     entity_temperature: sensor.ozamiz_temperature

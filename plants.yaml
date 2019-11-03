@@ -7,7 +7,7 @@ Xiaomi_miflora_01:
     temperature: sensor.Xiaomi_miflora_01_temperature
     conductivity: sensor.Xiaomi_miflora_01_conductivity
     brightness: sensor.Xiaomi_miflora_01_light_intensity
-  min_battery: 10
+  # min_battery: 10
   min_moisture: 20
   max_moisture: 60
   min_conductivity: 350
