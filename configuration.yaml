@@ -91,3 +91,4 @@ history: !include history.yaml
 zone: !include zones.yaml
 # person: !include persons.yaml
 plant: !include plants.yaml
+logbook: !include logbook.yaml

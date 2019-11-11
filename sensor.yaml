@@ -1,53 +1,97 @@
 ############################################################
+##                                                        ##
+##                     influxdb                           ##
+##                    requete sur srv test                ##
+############################################################
+  - platform: influxdb
+    host: !secret INFLUXDB_IP
+    port: !secret INFLUXDB_PORT
+    username: homeassistance
+    password: homeassistance
+    queries:
+      # requete pour la vitesse d'upload
+      # select last("mean_bytes_sent") as value from "net" where "interface" = 'em0'
+      - name: pfsense up
+        unit_of_measurement: 'MiB'
+        value_template: '{{((((value | int) / 1024) /1024) /1024) | int}}'
+        group_function: mean
+        where: '"interface" = ''em0'''
+        measurement: '"net"'
+        field: '"bytes_sent"'
+        database: pfsense
+     
+
+      - name: pfsense down
+        unit_of_measurement: 'MiB'
+        value_template: '{{((((value | int) / 1024) /1024) /1024) | int}}'
+        group_function: mean
+        where: '"interface" = ''em0'''
+        measurement: '"net"'
+        field: '"bytes_recv"'
+        database: pfsense
+    #  8544929966.0 
+    #  8345391 
+
+
+      #  - name: balcon
+      #   unit_of_measurement: '°C'
+      #   value_template: '{{ value | round(1) }}'
+      #   group_function: last
+      #   where: '"device" = ''Test'''
+      #   measurement: '"cpu_load_short"'
+      #   field: '"Température"'
+      #   database: plup
+
+  - platform: snmp
+    name: 'pfsense WAN in'
+    host: 192.168.1.1
+    baseoid: 1.3.6.1.2.1.31.1.1.1.6.2
+    community: 'public'
+    version: '2c'
+    scan_interval: 10
+
+  - platform: snmp
+    name: 'pfsense WAN out'
+    host: 192.168.1.1
+    baseoid: 1.3.6.1.2.1.31.1.1.1.10.2
+    community: 'public'
+    version: '2c'
+    scan_interval: 10
+
+  - platform: statistics
+    name: 'pfsense WAN in Stats'
+    entity_id: sensor.pfsense_wan_in
+    sampling_size: 4
+    max_age:
+      hours: 24
+
+  - platform: statistics
+    name: 'pfsense WAN out Stats'
+    entity_id: sensor.pfsense_wan_out
+    sampling_size: 4
+    max_age:
+      hours: 24
+
+  - platform: template
+    sensors:
+      internet_in_mbps:
+        icon_template: mdi:cloud-download-outline
+        value_template: "{{ (state_attr('sensor.pfsense_wan_in_stats','change_rate')|float*8*(state_attr('sensor.pfsense_wan_in_stats', 'sampling_size')-1)/1000000)|round(2) }}"
+        unit_of_measurement: 'Mbps'
+        entity_id: sensor.pfsense_wan_in_stats
+      internet_out_mbps:
+        icon_template: mdi:cloud-upload-outline
+        value_template: "{{ (state_attr('sensor.pfsense_wan_out_stats','change_rate')|float*8*(state_attr('sensor.pfsense_wan_out_stats', 'sampling_size')-1)/1000000)|round(2) }}"
+        unit_of_measurement: 'Mbps'
+        entity_id: sensor.pfsense_wan_out_stats
+
+############################################################
 ## https://github.com/custom-cards/aftership-card         ##
 ##                     aftership                          ##
 ##                                                        ##
 ############################################################
   - platform: aftership
     api_key: !secret AFTERSHIP_API_KEY
-
-############################################################
-## https://github.com/iammexx/home-assistant-config/tree/master/ui/darksky         ##
-## https://www.home-assistant.io/integrations/darksky#sunset_time
-##                     darksky                            ##
-##                                                        ##
-############################################################
-  - platform: darksky
-    api_key: !secret DARKSKY_API_KEY
-    forecast:
-      - 0
-      - 1
-      - 2
-      - 3
-      - 4
-      - 5
-    monitored_conditions:
-      - icon
-      - summary
-      - nearest_storm_bearing
-      - humidity
-      - temperature
-      - temperature_high
-      - temperature_low
-      - apparent_temperature
-      - wind_speed
-      - wind_bearing
-      - precip_type
-      - precip_probability
-      - precip_accumulation
-      - precip_intensity
-      - uv_index
-      - daily_summary
-      - pressure
-      - visibility
-      - nearest_storm_distance
-      - alerts
-      # - sunrise_time 
-      # - sunset_time
-    name: ozamiz
-    latitude: 8.132234
-    longitude: 123.830935
-    scan_interval: 300
 
 ############################################################
 # https://www.danielmartingonzalez.com/caring-your-plants-with-mi-flora-and-home-assistant/
@@ -73,10 +117,10 @@
     force_update: true
     median: 3
     monitored_conditions:
-      # - moisture
+      - moisture
       - light
       - temperature
-      # - conductivity
+      - conductivity
       - battery
 
   - platform: miflora
@@ -85,9 +129,9 @@
     force_update: false
     median: 1
     monitored_conditions:
-      # - moisture
+      - moisture
       - light
       - temperature
-      # - conductivity
+      - conductivity
       - battery            
   

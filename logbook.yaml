@@ -1,0 +1,4 @@
+exclude:
+    entities:
+      - binary_sensor.presence_2
+      

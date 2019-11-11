@@ -48,11 +48,6 @@ cards:
       source: true
       power_state: false
 
-#################################################################################      
-  - type: light
-    entity: light.ruban
-    name: My Bed
-
 #################################################################################
   - type: plant-status
     name: Groot

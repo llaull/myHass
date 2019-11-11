@@ -74,7 +74,7 @@
   condition:
   - condition: and
     conditions:
-    - below: '30'
+    - below: '20'
       condition: numeric_state
       entity_id: sensor.lightlevel_4
     - condition: and
