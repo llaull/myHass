@@ -23,4 +23,3 @@ views:
   - !include lovelace/00_home_view.yaml
   - !include lovelace/10_home_ge.yaml
   - !include lovelace/20_lights_view.yaml
-  - !include lovelace/30_asawa_ko.yaml
