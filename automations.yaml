@@ -1,1 +1,124 @@
-[]
+- id: '1572624617150'
+  alias: chambre ruban
+  description: ''
+  trigger:
+  - device_id: af591a37ee134702bba1e6eea1815d1e
+    domain: binary_sensor
+    entity_id: binary_sensor.presence_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+    platform: device
+    type: motion
+  action:
+  - data:
+      brightness: 150
+      entity_id:
+      - light.ruban
+      rgb_color:
+      - 255
+      - 0
+      - 0
+    service: light.turn_on
+- id: '1572629287512'
+  alias: salon test ouverture
+  description: ''
+  trigger:
+  - device_id: c4648785b645443280f6ff6e8f09b145
+    domain: binary_sensor
+    entity_id: binary_sensor.openclose_6
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+    platform: device
+    type: not_opened
+  action:
+  - device_id: d09efc8d30a84dadbceb5a4eb2c7f41c
+    domain: light
+    entity_id: light.hue_go_2
+    type: turn_on
+- id: '1572629893373'
+  alias: ferme
+  description: ''
+  trigger:
+  - device_id: c4648785b645443280f6ff6e8f09b145
+    domain: binary_sensor
+    entity_id: binary_sensor.openclose_6
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+    platform: device
+    type: opened
+  condition: []
+  action:
+  - device_id: d09efc8d30a84dadbceb5a4eb2c7f41c
+    domain: light
+    entity_id: light.hue_go_2
+    type: turn_off
+- id: '1572797206093'
+  alias: bedroom strip
+  description: if low light, if is_off, if day mode
+  trigger:
+  - device_id: af591a37ee134702bba1e6eea1815d1e
+    domain: binary_sensor
+    entity_id: binary_sensor.presence_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
+    platform: device
+    type: motion
+  condition:
+  - condition: and
+    conditions:
+    - below: '20'
+      condition: numeric_state
+      entity_id: sensor.lightlevel_4
+    - condition: and
+      conditions:
+      - condition: device
+        device_id: 3fe5fc52c9ab41d0995639c82fa119e6
+        domain: light
+        entity_id: light.ruban
+        type: is_off
+    - condition: and
+      conditions:
+      - condition: state
+        entity_id: sun.sun
+        state: above_horizon
+  action:
+  - data:
+      brightness: 150
+      entity_id:
+      - light.ruban
+      rgb_color:
+      - 255
+      - 146
+      - 146
+    service: light.turn_on
+- id: '1572803815004'
+  alias: bedromm off
+  description: ''
+  trigger:
+  - device_id: af591a37ee134702bba1e6eea1815d1e
+    domain: binary_sensor
+    entity_id: binary_sensor.presence_2
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+    platform: device
+    type: no_motion
+  condition: []
+  action:
+  - device_id: 3fe5fc52c9ab41d0995639c82fa119e6
+    domain: light
+    entity_id: light.ruban
+    type: turn_off
+  - device_id: 6be517a9c12e4a73ad8239783bc65a04
+    domain: light
+    entity_id: light.plafond
+    type: turn_off

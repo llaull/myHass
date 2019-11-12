@@ -1,0 +1,26 @@
+title: Asawa home
+icon: mdi:hand-heart
+path: asawa-ko
+
+cards:
+#################################################################################      
+  - type: light
+    entity: light.ruban
+    name: My Bed
+
+#################################################################################
+  - type: glance
+    title: home information
+    entities:
+      - sensor.temperature_3
+      - sensor.xiaomi_miflora_01_temperature
+      - entity: sensor.xiaomi_miflora_02_temperature
+        name: Bathroom
+      - sensor.xiaomi_miflora_03_temperature
+      - binary_sensor.openclose_5
+      - binary_sensor.openclose_6
+      - binary_sensor.presence_2
+      - plant.xiaomi_miflora_02
+      # - entity: light.ruban
+      #   tap_action:
+      #     action: toggle

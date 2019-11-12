@@ -5,9 +5,12 @@ path: none
 cards:
   - type: horizontal-stack
     cards:
+
+#################################################################################      
     - type: custom:mini-graph-card
+      hide_if_unavailable: true
       entities:
-        - sensor.balcon
+        - sensor.xiaomi_miflora_03_temperature
       line_color: blue
       line_width: 8
       font_size: 75
@@ -19,19 +22,36 @@ cards:
       - value: 30
         color: "#c0392b"
 
+    # kitchen    
     - type: custom:mini-graph-card
+      hide_if_unavailable: true  
       entities:
-        - sensor.cuisine
+        - sensor.xiaomi_miflora_01_temperature
       line_color: '#e74c3c'
       line_width: 8
 
+    # bedroom  
     - type: custom:mini-graph-card
+      hide_if_unavailable: true 
       entities:
         - sensor.temperature_3
       line_color: var(--accent-color)
       line_width: 8
       font_size: 75
-      
-  - type: light
-    entity: light.ruban
-    name: My Bed
+
+  - type: custom:mini-media-player
+    entity: media_player.alice
+    icon: mdi:spotify
+    artwork: cover
+    hide:
+      volume: true
+      source: true
+      power_state: false
+
+#################################################################################
+  - type: plant-status
+    name: Groot
+    entity: plant.xiaomi_miflora_01
+
+
+

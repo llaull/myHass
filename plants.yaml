@@ -1,0 +1,35 @@
+# petit arbre cuisine
+# Ficus Banjamina
+Xiaomi_miflora_01:
+  sensors:
+    moisture: sensor.Xiaomi_miflora_01_moisture
+    battery: sensor.Xiaomi_miflora_01_battery
+    temperature: sensor.Xiaomi_miflora_01_temperature
+    conductivity: sensor.Xiaomi_miflora_01_conductivity
+    brightness: sensor.Xiaomi_miflora_01_light_intensity
+  # min_battery: 10
+  min_moisture: 20
+  max_moisture: 60
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: 8
+  max_temperature: 32
+  min_brightness: 2500
+  max_brightness: 35000
+  check_days: 3
+
+# sans plante mais util pour les infos de dehors
+Xiaomi_miflora_02:
+  sensors:
+    battery: sensor.Xiaomi_miflora_02_battery
+    temperature: sensor.Xiaomi_miflora_02_temperature
+    brightness: sensor.Xiaomi_miflora_02_light_intensity
+  min_battery: 10
+
+# place dans la SbD
+Xiaomi_miflora_03:
+  sensors:
+    battery: sensor.Xiaomi_miflora_03_battery
+    temperature: sensor.Xiaomi_miflora_03_temperature
+    brightness: sensor.Xiaomi_miflora_03_light_intensity
+  min_battery: 10
