@@ -1,4 +1,7 @@
 exclude:
     entities:
       - binary_sensor.presence_2
-      
+      - sensor.pfsense_wan_in_stats
+      - sensor.pfsense_wan_out_stats
+      - sensor.pfsense_wan_in
+      - sensor.pfsense_wan_out

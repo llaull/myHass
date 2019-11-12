@@ -68,16 +68,6 @@ tts:
 
 ############################################################
 ##                                                        ##
-##                     weather                            ##
-##                                                        ##
-############################################################
-weather:
-  - platform: darksky
-    api_key: !secret DARKSKY_API_KEY
-    mode: daily
-
-############################################################
-##                                                        ##
 ##                     INCLUDE YAML                       ##
 ##                                                        ##
 ############################################################
@@ -92,3 +82,4 @@ zone: !include zones.yaml
 # person: !include persons.yaml
 plant: !include plants.yaml
 logbook: !include logbook.yaml
+# snmp: !include snmp_bandwidth.yaml
