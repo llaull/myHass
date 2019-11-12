@@ -6,8 +6,8 @@
   - platform: influxdb
     host: !secret INFLUXDB_IP
     port: !secret INFLUXDB_PORT
-    username: homeassistance
-    password: homeassistance
+    username: homeassistant
+    password: homeassistant
     queries:
       # requete pour la vitesse d'upload
       # select last("mean_bytes_sent") as value from "net" where "interface" = 'em0'

@@ -52,9 +52,9 @@ hue:
 influxdb:
   host: !secret INFLUXDB_IP
   port: !secret INFLUXDB_PORT
-  database: homeassistance
-  username: homeassistance
-  password: homeassistance
+  database: homeassistant
+  username: homeassistant
+  password: homeassistant
   max_retries: 3
   default_measurement: state
 
@@ -65,7 +65,7 @@ influxdb:
 ############################################################
 tts:
   - platform: google_translate
-
+    language: 'fr'
 ############################################################
 ##                                                        ##
 ##                     INCLUDE YAML                       ##
