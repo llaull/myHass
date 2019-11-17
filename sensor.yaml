@@ -1,47 +1,8 @@
 ############################################################
 ##                                                        ##
-##                     influxdb                           ##
-##                    requete sur srv test                ##
+##                     snmp                               ##
+##                                                        ##
 ############################################################
-  - platform: influxdb
-    host: !secret INFLUXDB_IP
-    port: !secret INFLUXDB_PORT
-    username: homeassistant
-    password: homeassistant
-    queries:
-      # requete pour la vitesse d'upload
-      # select last("mean_bytes_sent") as value from "net" where "interface" = 'em0'
-      - name: pfsense up
-        unit_of_measurement: 'MiB'
-        value_template: '{{((((value | int) / 1024) /1024) /1024) | int}}'
-        group_function: mean
-        where: '"interface" = ''em0'''
-        measurement: '"net"'
-        field: '"bytes_sent"'
-        database: pfsense
-     
-
-      - name: pfsense down
-        unit_of_measurement: 'MiB'
-        value_template: '{{((((value | int) / 1024) /1024) /1024) | int}}'
-        group_function: mean
-        where: '"interface" = ''em0'''
-        measurement: '"net"'
-        field: '"bytes_recv"'
-        database: pfsense
-    #  8544929966.0 
-    #  8345391 
-
-
-      #  - name: balcon
-      #   unit_of_measurement: '°C'
-      #   value_template: '{{ value | round(1) }}'
-      #   group_function: last
-      #   where: '"device" = ''Test'''
-      #   measurement: '"cpu_load_short"'
-      #   field: '"Température"'
-      #   database: plup
-
   - platform: snmp
     name: 'pfsense WAN in'
     host: 192.168.1.1
@@ -84,6 +45,39 @@
         value_template: "{{ (state_attr('sensor.pfsense_wan_out_stats','change_rate')|float*8*(state_attr('sensor.pfsense_wan_out_stats', 'sampling_size')-1)/1000000)|round(2) }}"
         unit_of_measurement: 'Mbps'
         entity_id: sensor.pfsense_wan_out_stats
+
+
+############################################################
+## https://www.home-assistant.io/integrations/linky/      ##
+##                     linky                              ##
+##                                                        ##
+############################################################
+  - platform: template
+    sensors:
+      linky_yesterday_rounded:
+        friendly_name: "Conso veille"
+        unit_of_measurement: 'kWh'
+        value_template: "{{ states('sensor.linky_yesterday')|round(1) }}"
+    # sensors:
+    #   linky_yesterday_rounded:
+    #     friendly_name: "Conso mois"
+    #     unit_of_measurement: 'kWh'
+    #     value_template: "{{ states('sensor.linky_current_month')|round(1) }}"
+    # sensors:
+    #   linky_yesterday_rounded:
+    #     friendly_name: "Conso mois dernier"
+    #     unit_of_measurement: 'kWh'
+    #     value_template: "{{ states('sensor.linky_last_month')|round(1) }}"
+    # sensors:
+    #   linky_yesterday_rounded:
+    #     friendly_name: "Conso année"
+    #     unit_of_measurement: 'kWh'
+    #     value_template: "{{ states('sensor.linky_current_year')|round(1) }}"         
+    # sensors:
+    #   linky_yesterday_rounded:
+    #     friendly_name: "Conso année derniere "
+    #     unit_of_measurement: 'kWh'
+    #     value_template: "{{ states('sensor.linky_last_year')|round(1) }}"   
 
 ############################################################
 ## https://github.com/custom-cards/aftership-card         ##
