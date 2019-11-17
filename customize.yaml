@@ -7,12 +7,17 @@ sensor.xiaomi_miflora_01_temperature:
 sensor.temperature_3:
   friendly_name: Bedroom laurent
 
-binary_sensor.openclose_5:
+binary_sensor.openclose_6:
   friendly_name: porte d'entrée
 
-binary_sensor.openclose_6:
+binary_sensor.openclose_5:
   friendly_name: module de test
 
 plant.xiaomi_miflora_02:
   friendly_name: Groot the Ficus
-  
+
+switch.tp_link_bureau:
+  friendly_name: desk 
+
+switch.anti_moustique:
+  friendly_name: salon anti moustiques
