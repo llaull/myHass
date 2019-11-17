@@ -62,21 +62,25 @@
   alias: bedroom strip
   description: if low light, if is_off, if day mode
   trigger:
-  - device_id: 15d6d89a27284acb9ecb695e0ee2c5f7
+  - device_id: af591a37ee134702bba1e6eea1815d1e
     domain: binary_sensor
     entity_id: binary_sensor.presence_2
+    for:
+      hours: 0
+      minutes: 0
+      seconds: 1
     platform: device
     type: motion
   condition:
   - condition: and
     conditions:
-    - below: '10'
+    - below: '20'
       condition: numeric_state
       entity_id: sensor.lightlevel_4
     - condition: and
       conditions:
       - condition: device
-        device_id: 45ed02a99bda46039909df9a4cc60a3c
+        device_id: 3fe5fc52c9ab41d0995639c82fa119e6
         domain: light
         entity_id: light.ruban
         type: is_off
@@ -118,15 +122,3 @@
     domain: light
     entity_id: light.plafond
     type: turn_off
-- id: '1573737220990'
-  alias: Purge Database
-  description: sss
-  initial_state: True
-  trigger:
-    platform: time
-    at: '02:22:22'
-  action:
-    service: recorder.purge
-    data:
-      # keep_days: 7
-      repack: true

@@ -21,11 +21,6 @@ cards:
       - binary_sensor.openclose_6
       - binary_sensor.presence_2
       - plant.xiaomi_miflora_02
-      - switch.tp_link_bureau
-      - switch.anti_moustique
-      - sensor.pressure_10
-      - sensor.humidity_9
-      - sensor.temperature_8
       # - entity: light.ruban
       #   tap_action:
       #     action: toggle

@@ -5,6 +5,7 @@ default_config:
 ##                     HOME ASSISTANT                     ##
 ##                                                        ##
 ############################################################
+
 homeassistant:
   name: !secret HA_NAME
 
@@ -16,7 +17,6 @@ homeassistant:
   time_zone: Europe/Paris
 
   customize: !include customize.yaml
-
 ############################################################
 ##                                                        ##
 ##                        LOVELACE                        ##
@@ -60,13 +60,12 @@ influxdb:
 
 ############################################################
 ##                                                        ##
-##                     service                            ##
+##                     ????????                           ##
 ##                                                        ##
 ############################################################
 tts:
   - platform: google_translate
     language: 'fr'
-
 ############################################################
 ##                                                        ##
 ##                     Capteur Linky                      ##
@@ -86,6 +85,15 @@ linky:
 #     platform: pushbullet
 #     api_key: !secret PUSHBULLET_KEY  
 
+# twilio:
+#   account_sid: ACd60b9c13580fa81f5d93cdc680a57b0f
+#   auth_token: 83e9f654a3d7b02e0c79c2349d124c68
+
+# notify:
+#   - name: Home-Assistant
+#     platform: twilio_whatsapp
+#     from_number: whatsapp:+33641661575
+
 ############################################################
 ##https://community.home-assistant.io/t/easily-send-home-assistant-notifications-using-whatsapp/94072/19
 ##                     notify                             ##
@@ -94,10 +102,10 @@ linky:
 notify:
   - name: whatsapp
     platform: twilio_whatsapp
-    from_number: !secret TWILIO_NUMBER
-    account_sid: !secret TWILIO_ACCOUNT_SID
-    auth_token: !secret TWILIO_AUTH_TOKEN   
-
+    from_number: whatsapp:+14155238886
+    account_sid: !secret twilio_account_sid
+    auth_token: !secret twilio_auth_token   
+    
 ############################################################
 ##                                                        ##
 ##                     INCLUDE YAML                       ##
