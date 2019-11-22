@@ -46,3 +46,8 @@ themes
 .vscode/
 
 *.pyc
+
+!node-red/
+node-red/*
+!node-red/lib/
+
