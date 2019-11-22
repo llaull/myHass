@@ -10,7 +10,7 @@ cards:
     - type: custom:mini-graph-card
       hide_if_unavailable: true
       entities:
-        - sensor.xiaomi_miflora_03_temperature
+        - sensor.temperature_8
       line_color: blue
       line_width: 8
       font_size: 75

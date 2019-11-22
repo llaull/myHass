@@ -1,4 +1,4 @@
-sensor.xiaomi_miflora_03_temperature:
+sensor.temperature_8:
   friendly_name: Balcony
 
 sensor.xiaomi_miflora_01_temperature:
