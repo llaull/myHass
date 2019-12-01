@@ -1,0 +1,31 @@
+title: test
+# icon: mdi:hand-heart
+path: test
+
+cards:
+#################################################################################
+  - type: glance
+    title: home information
+    entities:
+      - sensor.temperature_3
+      - sensor.xiaomi_miflora_01_temperature
+      - entity: sensor.xiaomi_miflora_02_temperature
+        name: Bathroom
+      - sensor.xiaomi_miflora_03_temperature
+      - binary_sensor.openclose_5
+      - binary_sensor.openclose_6
+      - binary_sensor.presence_2
+      - plant.xiaomi_miflora_02
+      - switch.tp_link_bureau
+      - switch.anti_moustique
+      - sensor.pressure_10
+      - sensor.humidity_9
+      - sensor.temperature_8
+      # - entity: light.ruban
+      #   tap_action:
+      #     action: toggle
+
+  - type: picture-glance
+    title: CCTV 1
+    entities: []
+    camera_image: camera.garage_cam

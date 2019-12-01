@@ -54,13 +54,13 @@ cards:
     entity: plant.xiaomi_miflora_01
 
 #################################################################################
-  - type: gauge
-    name: Conso veille
-    unit: 'KWh'
-    entity: sensor.linky_yesterday_rounded
-    severity:
-      green: 1
-      yellow: 10
-      red: 12
+  # - type: gauge
+  #   name: Conso veille
+  #   unit: 'KWh'
+  #   entity: sensor.linky_yesterday_rounded
+  #   severity:
+  #     green: 1
+  #     yellow: 10
+  #     red: 12
 
       

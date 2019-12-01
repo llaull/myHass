@@ -2,6 +2,17 @@ title: My connect Home
 icon: mdi:forklift
 path: home
 
+badges:
+  - entity: person.laul
+    name: Laurent
+    image: /local/laurent.png
+  - entity: person.may
+    name: May
+    image: /local/may.png    
+  - entity: device_tracker.remainphone
+    name: Romain
+    icon: mdi:letter-r-box-outline
+    
 cards:
   - type: 'custom:aftership-card'
     entity: sensor.aftership

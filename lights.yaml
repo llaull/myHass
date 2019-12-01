@@ -1,18 +1,19 @@
-- platform: group
-  name: Salon Lights
-  entities:
-    - light.hue_go_1
-    - light.hue_go_2
-    - light.salon_a
-    - light.salon_b
+# - platform: group
+#   name: Salon Lights
+#   entities:
+#     - light.hue_go_1
+#     - light.hue_go_2
+#     - light.salon_a
+#     - light.salon_b
 
-- platform: group
-  name: Shared Lights
-  entities:
-      - light.hue_go_1
-      - light.hue_go_2
-      - light.salon_a
-      - light.salon_b
-      - light.buffet
-      - light.canape
-      - light.cuisine
+# - platform: group
+#   name: Shared Lights
+#   entities:
+#       - light.hue_go_1
+#       - light.hue_go_2
+#       - light.salon_a
+#       - light.salon_b
+#       - light.buffet
+#       - light.canape
+#       - light.cuisine
+
