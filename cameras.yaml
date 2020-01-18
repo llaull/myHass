@@ -1,0 +1,7 @@
+ffmpeg:
+
+# http://automatedhome.party/2017/12/18/modify-the-xiaomi-xiaofang-camera-to-work-with-home-assistant-and-other-video-recording-software/
+camera:
+  - platform: ffmpeg
+    name: Garage Cam
+    input: rtsp://192.168.1.160:554/unicast

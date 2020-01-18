@@ -1,8 +1,9 @@
 resources:
   # - !include lovelace/resources/modules.yaml
   - url: /local/mini-graph-card-bundle.js?v=0.8.1
-    type: module
+    type: module 
 
+  # https://github.com/iantrich/aftership-card
   # pour le module suivis des colis
   - url: /local/aftership-card.js
     type: module

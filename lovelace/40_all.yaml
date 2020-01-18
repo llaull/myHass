@@ -21,6 +21,9 @@ cards:
       - sensor.pressure_10
       - sensor.humidity_9
       - sensor.temperature_8
+      - binary_sensor.presence_13
+      - binary_sensor.presence_14
+      - sensor.humidity_12
       # - entity: light.ruban
       #   tap_action:
       #     action: toggle

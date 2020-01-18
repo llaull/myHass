@@ -39,6 +39,15 @@ cards:
       line_width: 8
       font_size: 75
 
+    # bathroom  
+    - type: custom:mini-graph-card
+      hide_if_unavailable: true 
+      entities:
+        - sensor.temperature_11
+      line_color: var(--accent-color)
+      line_width: 8
+      font_size: 75
+
   - type: custom:mini-media-player
     entity: media_player.alice
     icon: mdi:spotify

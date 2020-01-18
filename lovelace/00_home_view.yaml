@@ -14,9 +14,9 @@ badges:
     icon: mdi:letter-r-box-outline
     
 cards:
-  - type: 'custom:aftership-card'
-    entity: sensor.aftership
-    title: Packages
+  # - type: custom:aftership-card
+  #   entity: sensor.aftership
+  #   title: Packages
 
   - type: custom:weather-card
     entity: weather.maison

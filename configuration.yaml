@@ -91,14 +91,15 @@ linky:
 ##                     notify                             ##
 ##                     whatsapp                           ##
 ############################################################
-notify:
-  - name: whatsapp
-    platform: twilio_whatsapp
-    from_number: !secret TWILIO_NUMBER
-    account_sid: !secret TWILIO_ACCOUNT_SID
-    auth_token: !secret TWILIO_AUTH_TOKEN   
+# notify:
+#   - name: whatsapp
+#     platform: twilio_whatsapp
+#     from_number: !secret TWILIO_NUMBER
+#     account_sid: !secret TWILIO_ACCOUNT_SID
+#     auth_token: !secret TWILIO_AUTH_TOKEN   
 
 ffmpeg:
+
 # http://automatedhome.party/2017/12/18/modify-the-xiaomi-xiaofang-camera-to-work-with-home-assistant-and-other-video-recording-software/
 camera:
   - platform: ffmpeg
@@ -121,5 +122,6 @@ zone: !include zones.yaml
 plant: !include plants.yaml
 logbook: !include logbook.yaml
 device_tracker: !include device_tracker.yaml
+# ffmpeg: !include cameras.yaml
 # person: !include persons.yaml
 # snmp: !include snmp_bandwidth.yaml

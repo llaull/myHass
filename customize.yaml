@@ -36,3 +36,9 @@ light.plafond:
 
 light.ruban:
   friendly_name: strip Laurent's bedroom
+
+sensor.temperature_11:
+  friendly_name: Bathroom
+
+sensor.temperature_15:
+  friendly_name: Salon
