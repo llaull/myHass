@@ -1,4 +1,4 @@
-- platform: ping
-  hosts:
-    laulPhone: 192.168.1.101
-    RemainPhone: 192.168.1.148
+# - platform: ping
+#   hosts:
+#     laulPhone: 192.168.1.101
+#     RemainPhone: 192.168.1.148

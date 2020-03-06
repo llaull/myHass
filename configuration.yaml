@@ -16,6 +16,7 @@ homeassistant:
   time_zone: Europe/Paris
 
   customize: !include customize.yaml
+  # javascript_version: latest
 
 ############################################################
 ##                                                        ##
@@ -105,6 +106,12 @@ camera:
   - platform: ffmpeg
     name: Garage Cam
     input: rtsp://192.168.1.160:554/unicast
+
+
+freebox:
+  host: 347sywzf.fbxos.fr
+  port: 41268
+
 
 ############################################################
 ##                                                        ##

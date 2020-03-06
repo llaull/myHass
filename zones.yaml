@@ -4,8 +4,8 @@
   radius: 100
   icon: mdi:worker
 
-- name: home
-  latitude: !secret HA_LAT
-  longitude: !secret HA_LONG
-  radius: 50
-  icon: mdi:home
+# - name: home
+#   latitude: !secret HA_LAT
+#   longitude: !secret HA_LONG
+#   radius: 50
+#   icon: mdi:home
