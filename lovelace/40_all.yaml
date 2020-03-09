@@ -31,4 +31,4 @@ cards:
   - type: picture-glance
     title: CCTV 1
     entities: []
-    camera_image: camera.garage_cam
+    camera_image: camera.cctv1

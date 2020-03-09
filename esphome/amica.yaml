@@ -1,0 +1,85 @@
+esphome:
+  name: screenoled
+  platform: ESP8266
+  board: nodemcuv2
+
+wifi:
+  ssid: "llm_domotique"
+  password: "AV3iYuklyOySMXcRr2YVQRpXJ4X28mqIIt1pnkam9ZEV7qvyrTTIuJpDMMEU95l"
+  manual_ip:
+    static_ip: 192.168.1.200
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Amica Fallback Hotspot"
+    password: "3LL6amCy9Ze8"
+
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+i2c:
+  sda: D1
+  scl: D2
+
+font:
+  - file: "arial.ttf"
+    id: my_font
+    size: 13
+    
+  - file: 'arial.ttf'
+    id: font3
+    size: 20
+time:
+  - platform: homeassistant
+    id: esptime
+    
+sensor:
+  - platform: homeassistant
+    id: inside_temperature
+    entity_id: sensor.temperature_15
+    internal: true
+
+  - platform: homeassistant
+    id: outside_temperature
+    entity_id: sensor.temperature_8
+    internal: true
+  
+  - platform: homeassistant
+    id: covid_french_current
+    entity_id: sensor.france_coronavirus_confirmed
+    internal: true
+    
+    
+display:
+  - platform: ssd1306_i2c
+    model: "SSD1306 128x64"
+    #reset_pin: D0
+    address: 0x3C
+    lambda: |-
+      if (id(outside_temperature).state == id(outside_temperature).state) {
+        it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
+      } else {
+        it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      }
+      
+      if (id(inside_temperature).state == id(inside_temperature).state) {
+        it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
+      } else {
+        it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      }
+
+      if (id(covid_french_current).state == id(covid_french_current).state) {
+        it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
+      } else {
+        it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      }    
+      

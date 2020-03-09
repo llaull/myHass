@@ -82,29 +82,12 @@ linky:
 ##                     notify                             ##
 ##                                                        ##
 ############################################################
-# notify:
-#   - name: NOTIFIER_NAME
-#     platform: pushbullet
-#     api_key: !secret PUSHBULLET_KEY  
-
-############################################################
-##https://community.home-assistant.io/t/easily-send-home-assistant-notifications-using-whatsapp/94072/19
-##                     notify                             ##
-##                     whatsapp                           ##
-############################################################
-# notify:
-#   - name: whatsapp
-#     platform: twilio_whatsapp
-#     from_number: !secret TWILIO_NUMBER
-#     account_sid: !secret TWILIO_ACCOUNT_SID
-#     auth_token: !secret TWILIO_AUTH_TOKEN   
-
 ffmpeg:
 
 # http://automatedhome.party/2017/12/18/modify-the-xiaomi-xiaofang-camera-to-work-with-home-assistant-and-other-video-recording-software/
 camera:
   - platform: ffmpeg
-    name: Garage Cam
+    name: CCTV1
     input: rtsp://192.168.1.160:554/unicast
 
 
@@ -120,7 +103,7 @@ freebox:
 ############################################################
 group: !include groups.yaml
 light: !include lights.yaml
-automation: !include automations.yaml
+# automation: !include automations.yaml
 sensor: !include sensor.yaml
 script: !include scripts.yaml
 recorder: !include recorder.yaml

@@ -13,8 +13,8 @@ binary_sensor.openclose_6:
 binary_sensor.openclose_5:
   friendly_name: module de test
 
-plant.xiaomi_miflora_02:
-  friendly_name: Groot the Ficus
+# plant.xiaomi_miflora_02:
+#   friendly_name: Groot the Ficus
 
 switch.tp_link_bureau:
   friendly_name: desk 
@@ -42,3 +42,7 @@ sensor.temperature_11:
 
 sensor.temperature_15:
   friendly_name: Salon
+
+plant.xiaomi_miflora_01:
+  friendly_name: Groot the ficus
+  entity_picture: /local/img/plant/groot.jpg

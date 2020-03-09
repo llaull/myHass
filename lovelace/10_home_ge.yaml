@@ -1,27 +1,22 @@
-title: Second view
+title: Home
 icon: mdi:home-assistant
 path: none
 
-badges:
-  - entity: sensor.france_coronavirus_current
-    name: COVID-19 France
-  - entity: sensor.philippines_coronavirus_current
-    name: COVID-19 Philippines
-  
-
+badges: 
+  - entity: person.laul
+    name: Laurent
+    image: /local/laurent.png
+  - entity: person.may
+    name: May
+    image: /local/may.png    
+  - entity: device_tracker.remainphone
+    name: Romain
+    icon: mdi:letter-r-box-outline
+    
 
 cards:
   - type: horizontal-stack
     cards:
-
-    # - type: custom:mini-graph-card
-    #   entities:
-    #   - sensor.temperature_8
-    #   align_icon: left
-    #   align_state: center
-    #   show:
-    #     fill: false
-
 
 #################################################################################      
     - type: custom:mini-graph-card
@@ -39,16 +34,7 @@ cards:
       - value: 30
         color: "#c0392b"
 
-    # # kitchen    
-    # - type: custom:mini-graph-card
-    #   hide_if_unavailable: true  
-    #   entities:
-    #     - sensor.xiaomi_miflora_01_temperature
-    #   line_color: '#e74c3c'
-    #   line_width: 8
-    #   font_size: 75
-
-    # kitchen    
+    # living-room    
     - type: custom:mini-graph-card
       hide_if_unavailable: true  
       entities:
@@ -75,6 +61,17 @@ cards:
       line_width: 8
       font_size: 75
 
+#################################################################################
+  - type: custom:mini-media-player
+    entity: media_player.maison
+    icon: mdi:home
+    artwork: cover
+    # hide:
+    #   volume: true
+    #   source: true
+    #   power_state: false
+
+
   - type: custom:mini-media-player
     entity: media_player.alice
     icon: mdi:spotify
@@ -84,19 +81,23 @@ cards:
       source: true
       power_state: false
 
+  - type: custom:mini-media-player
+    entity: media_player.googlehome0499
+    icon: mdi:spotify
+    artwork: cover
+    hide:
+      volume: true
+      source: true
+      power_state: false
+
+
+  - type: media-control
+    entity: media_player.tv
+
+
+  - type: media-control
+    entity: media_player.maison
+
 #################################################################################
   - type: plant-status
-    name: Groot
     entity: plant.xiaomi_miflora_01
-
-#################################################################################
-  # - type: gauge
-  #   name: Conso veille
-  #   unit: 'KWh'
-  #   entity: sensor.linky_yesterday_rounded
-  #   severity:
-  #     green: 1
-  #     yellow: 10
-  #     red: 12
-
-      

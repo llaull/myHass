@@ -144,7 +144,9 @@
 
   - platform: synologydsm
     name: MySynoCloud
-    host: 192.168.11.105
+    host: !secret SYNO_CLOUD_IP 
+    port: 53506
+    ssl: false
     username: !secret SYNO_USER
     password: !secret SYNO_PWD
     monitored_conditions:

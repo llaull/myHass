@@ -1,29 +1,114 @@
-title: My connect Home
-icon: mdi:forklift
-path: home
+title: outside
+icon: mdi:home-city
+path: outside
 
 badges:
-  - entity: person.laul
-    name: Laurent
-    image: /local/laurent.png
-  - entity: person.may
-    name: May
-    image: /local/may.png    
-  - entity: device_tracker.remainphone
-    name: Romain
-    icon: mdi:letter-r-box-outline
-    
+  - entity: sensor.france_coronavirus_current
+    name: COVID-19 France
+  - entity: sensor.philippines_coronavirus_current
+    name: COVID-19 Philippines
+
+
+type: vertical-stack
 cards:
-  - type: custom:aftership-card
-    entity: sensor.aftership
-    title: Packages
+  # - type: custom:aftership-card
+  #   entity: sensor.aftership
+  #   title: Packages
 
-  - type: custom:weather-card
-    entity: weather.maison
-    icons: "/local/custom-lovelace/weather-card/icones/animated/"
-    name: Merignac
+  - type: horizontal-stack
+    cards:
+      - type: custom:aftership-card
+        entity: sensor.aftership
+        title: Packages
 
-  - type: custom:weather-card
-    entity: weather.ozamiz
-    icons: "/local/custom-lovelace/weather-card/icones/animated/"
-    name: Ozamiz
+      - type: custom:mini-graph-card
+        icon: mdi:account-multiple-plus
+        entities:
+          - sensor.france_coronavirus_current
+        name: COVID19 day
+        hours_to_show: 168
+        aggregate_func: max
+        group_by: date
+        show:
+          graph: bar
+      # - type: picture-entity
+      #   entity: light.all_lights
+      #   image: /local/laul.png
+
+  - type: vertical-stack
+    cards:
+      - type: custom:weather-card
+        entity: weather.maison
+        icons: "/local/custom-lovelace/weather-card/icones/animated/"
+        name: Merignac
+
+
+  - type: horizontal-stack
+    cards:
+
+      - type: custom:weather-card
+        entity: weather.ozamiz
+        icons: "/local/custom-lovelace/weather-card/icones/animated/"
+        name: Ozamiz
+
+
+# cards:
+#   - type: horizontal-stack
+#     cards:
+
+#   # - type: horizontal-stack
+#   #   cards:
+#     - type: custom:aftership-card
+#       entity: sensor.aftership
+#       title: Packages
+#   # - type: horizontal-stack
+#   #   cards:
+#     - type: custom:mini-graph-card
+#       icon: mdi:account-multiple-plus
+#       entities:
+#         - sensor.france_coronavirus_current
+#       name: COVID19 day
+#       hours_to_show: 168
+#       aggregate_func: max
+#       group_by: date
+#       show:
+#         graph: bar
+
+#     - type: vertical-stack
+#       cards:
+#       - type: horizontal-stack
+#         cards:
+#         - type: custom:aftership-card
+#           entity: sensor.aftership
+#           title: Packages
+
+
+
+
+
+# cards:
+#   - type: custom:aftership-card
+#     entity: sensor.aftership
+#     title: Packages
+
+#   - type: custom:mini-graph-card
+#     icon: mdi:account-multiple-plus
+#     entities:
+#       - sensor.france_coronavirus_current
+#     name: COVID19 day
+#     hours_to_show: 168
+#     aggregate_func: max
+#     group_by: date
+#     show:
+#       graph: bar
+
+
+#   - type: custom:weather-card
+#     entity: weather.maison
+#     icons: "/local/custom-lovelace/weather-card/icones/animated/"
+#     name: Merignac
+
+#   - type: custom:weather-card
+#     entity: weather.ozamiz
+#     icons: "/local/custom-lovelace/weather-card/icones/animated/"
+#     name: Ozamiz
