@@ -1,11 +1,11 @@
 esphome:
-  name: screenoled
+  name: nodemcu_oled
   platform: ESP8266
   board: nodemcuv2
 
 wifi:
-  ssid: "llm_domotique"
-  password: "AV3iYuklyOySMXcRr2YVQRpXJ4X28mqIIt1pnkam9ZEV7qvyrTTIuJpDMMEU95l"
+  ssid: !secret IOT_SSID
+  password: !secret IOT_PWD
   manual_ip:
     static_ip: 192.168.1.200
     gateway: 192.168.1.1
@@ -57,29 +57,48 @@ sensor:
     id: covid_french_current
     entity_id: sensor.france_coronavirus_confirmed
     internal: true
-    
+
+image:
+  - file: "image.png"
+    id: my_image
+    resize: 100x100    
     
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
     #reset_pin: D0
     address: 0x3C
-    lambda: |-
-      if (id(outside_temperature).state == id(outside_temperature).state) {
-        it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
-      } else {
-        it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      }
-      
-      if (id(inside_temperature).state == id(inside_temperature).state) {
-        it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
-      } else {
-        it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      }
+    id: my_display
+    pages:
+      - id: page1
+        lambda: |-
+          it.image(0, 0, id(my_image));
+          it.print(60, 32, id(my_font), "Et ze partiii");
+      - id: page2
+        lambda: |-
+          it.print(0, 10, id(my_font), "This is page 2!");
+      - id: page3
+        lambda: |-          
+          if (id(outside_temperature).state == id(outside_temperature).state) {
+            it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
+          } else {
+            it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+          }
+          
+          if (id(inside_temperature).state == id(inside_temperature).state) {
+            it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
+          } else {
+            it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+          }
 
-      if (id(covid_french_current).state == id(covid_french_current).state) {
-        it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
-      } else {
-        it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      }    
-      
+          if (id(covid_french_current).state == id(covid_french_current).state) {
+            it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
+          } else {
+            it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+          }  
+    
+interval:
+  - interval: 5s
+    then:
+      - display.page.show_next: my_display
+      - component.update: my_display      
