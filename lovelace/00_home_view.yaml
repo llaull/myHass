@@ -3,8 +3,8 @@ icon: mdi:home-city
 path: outside
 
 badges:
-  - entity: sensor.france_coronavirus_current
-    name: COVID-19 France
+  - entity: sensor.worldwide_coronavirus_current
+    name: COVID-19 world
   - entity: sensor.philippines_coronavirus_current
     name: COVID-19 Philippines
 

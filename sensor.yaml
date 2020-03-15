@@ -46,7 +46,6 @@
         unit_of_measurement: 'Mbps'
         entity_id: sensor.pfsense_wan_out_stats
 
-
 ############################################################
 ## https://www.home-assistant.io/integrations/linky/      ##
 ##                     linky                              ##
@@ -58,26 +57,6 @@
         friendly_name: "Conso veille"
         unit_of_measurement: 'kWh'
         value_template: "{{ states('sensor.linky_yesterday')|round(1) }}"
-    # sensors:
-    #   linky_yesterday_rounded:
-    #     friendly_name: "Conso mois"
-    #     unit_of_measurement: 'kWh'
-    #     value_template: "{{ states('sensor.linky_current_month')|round(1) }}"
-    # sensors:
-    #   linky_yesterday_rounded:
-    #     friendly_name: "Conso mois dernier"
-    #     unit_of_measurement: 'kWh'
-    #     value_template: "{{ states('sensor.linky_last_month')|round(1) }}"
-    # sensors:
-    #   linky_yesterday_rounded:
-    #     friendly_name: "Conso année"
-    #     unit_of_measurement: 'kWh'
-    #     value_template: "{{ states('sensor.linky_current_year')|round(1) }}"         
-    # sensors:
-    #   linky_yesterday_rounded:
-    #     friendly_name: "Conso année derniere "
-    #     unit_of_measurement: 'kWh'
-    #     value_template: "{{ states('sensor.linky_last_year')|round(1) }}"   
 
 ############################################################
 ## https://github.com/custom-cards/aftership-card         ##

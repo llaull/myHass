@@ -1,7 +1,7 @@
 - name: work
   latitude: !secret WORK_LAT
   longitude: !secret WORK_LONG
-  radius: 100
+  radius: 88.10575141675928
   icon: mdi:worker
 
 # - name: home

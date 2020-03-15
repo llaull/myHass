@@ -51,3 +51,5 @@ themes
 node-red/*
 !node-red/lib/
 
+# media files
+*.mp3

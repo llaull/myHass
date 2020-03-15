@@ -1,11 +1,11 @@
 esphome:
   name: nodeyellow
   platform: ESP8266
-  board: esp01_1m
+  board: nodemcuv2
 
 wifi:
-  ssid: "llm_domotique"
-  password: "AV3iYuklyOySMXcRr2YVQRpXJ4X28mqIIt1pnkam9ZEV7qvyrTTIuJpDMMEU95l"
+  ssid: !secret IOT_SSID
+  password: !secret IOT_PWD
 
   # Enable fallback hotspot (captive portal) in case wifi connection fails
   ap:
@@ -21,3 +21,41 @@ logger:
 api:
 
 ota:
+
+# sensor:
+#   - platform: resistance
+#     sensor: source_sensor
+#     configuration: DOWNSTREAM
+#     resistor: 10kOhm
+#     name: Resistance Sensor
+
+# # Example source sensor:
+#   - platform: adc
+#     id: source_sensor
+#     pin: A0
+    
+    
+
+sensor:
+  - platform: ntc
+    sensor: resistance_sensor
+    calibration:
+      - 4347Ohm -> -10°C
+      - 4125.90918 -> 22°C
+      # - 3974Ohm  -> 22°C
+      - 2707Ohm -> 60°C
+    name: NTC Temperature
+    
+
+  # Example source sensors:
+  - platform: resistance
+    id: resistance_sensor
+    sensor: source_sensor
+    configuration: DOWNSTREAM
+    resistor: 10kOhm
+    name: Resistance Sensor
+  - platform: adc
+    id: source_sensor
+    update_interval: 10s
+    pin: A0
+    
