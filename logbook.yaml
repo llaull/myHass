@@ -5,3 +5,5 @@ exclude:
       - sensor.pfsense_wan_out_stats
       - sensor.pfsense_wan_in
       - sensor.pfsense_wan_out
+      - sensor.worldclock_manila
+      - sensor.worldclock_paris

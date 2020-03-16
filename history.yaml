@@ -6,11 +6,18 @@
 
 # 
 exclude:
-  entities:
 
+  domains:
+    - camera
+    - automation
+
+  entities:
     # fake sensor 
     - sensor.daylight
+
     - sensor.pfsense_wan_out
     - sensor.pfsense_wan_in
     - sensor.pfsense_wan_in_stats
     - sensor.pfsense_wan_out_stats
+    - sensor.worldclock_manila
+    - sensor.worldclock_paris

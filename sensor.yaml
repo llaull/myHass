@@ -135,3 +135,13 @@
       - network_down
       - volume_size_used
       - volume_percentage_used
+
+# worldclock
+  - platform: worldclock
+    time_zone: Asia/Manila
+    name: worldclock_manila
+
+# worldclock
+  - platform: worldclock
+    time_zone: Europe/Paris
+    name: worldclock_paris
