@@ -11,13 +11,6 @@ wifi:
     gateway: 192.168.1.1
     subnet: 255.255.255.0
 
-  # Enable fallback hotspot (captive portal) in case wifi connection fails
-  ap:
-    ssid: "Amica Fallback Hotspot"
-    password: "3LL6amCy9Ze8"
-
-captive_portal:
-
 # Enable logging
 logger:
 
@@ -33,14 +26,20 @@ i2c:
 font:
   - file: "arial.ttf"
     id: my_font
-    size: 13
-    
-  - file: 'arial.ttf'
-    id: font3
-    size: 20
+    size: 10
+
+  - file: 'digital-7.ttf'
+    id: digital
+    size: 25
+
+
 time:
   - platform: homeassistant
-    id: esptime
+    timezone: Europe/Paris
+    id: sntp_time_fr
+  # - platform: sntp
+  #   timezone: Asia/Manila
+  #   id: sntp_time_ph
     
 sensor:
   - platform: homeassistant
@@ -58,6 +57,12 @@ sensor:
     entity_id: sensor.france_coronavirus_confirmed
     internal: true
 
+text_sensor:
+  - platform: homeassistant
+    id: worldclock_manila
+    entity_id: sensor.manila
+    internal: true
+
 image:
   - file: "image.png"
     id: my_image
@@ -72,30 +77,34 @@ display:
     pages:
       - id: page1
         lambda: |-
-          it.image(0, 0, id(my_image));
-          it.print(60, 32, id(my_font), "Et ze partiii");
-      - id: page2
-        lambda: |-
-          it.print(0, 10, id(my_font), "This is page 2!");
-      - id: page3
-        lambda: |-          
-          if (id(outside_temperature).state == id(outside_temperature).state) {
-            it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
-          } else {
-            it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-          }
-          
-          if (id(inside_temperature).state == id(inside_temperature).state) {
-            it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
-          } else {
-            it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-          }
+          it.print(0, 0, id(my_font), "Bordeaux");
+          it.strftime(60, 11, id(digital), TextAlign::TOP_CENTER, "%H:%M", id(sntp_time_fr).now());
+          it.print(0, 30, id(my_font), "Ozamiz");     
+          it.printf(60, 44, id(digital), TextAlign::TOP_CENTER, "%s", id(worldclock_manila).state.c_str());      
+      # - id: page2
+      #   lambda: |-
+      #     it.printf(0, 10, id(my_font), "The data is: %s", id(worldclock_manila).state.c_str());
 
-          if (id(covid_french_current).state == id(covid_french_current).state) {
-            it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
-          } else {
-            it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-          }  
+      #    it.print(0, 10, id(my_font), "This is page 2!");
+      # - id: page3
+      #   lambda: |-          
+      #     if (id(outside_temperature).state == id(outside_temperature).state) {
+      #       it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
+      #     } else {
+      #       it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      #     }
+          
+      #     if (id(inside_temperature).state == id(inside_temperature).state) {
+      #       it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
+      #     } else {
+      #       it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      #     }
+
+      #     if (id(covid_french_current).state == id(covid_french_current).state) {
+      #       it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
+      #     } else {
+      #       it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
+      #     }  
     
 interval:
   - interval: 5s
