@@ -95,6 +95,11 @@ freebox:
   host: 347sywzf.fbxos.fr
   port: 41268
 
+media_player:
+  - platform: xiaomi_tv
+    host: 192.168.1.174
+    name: pierre_xiaomi_tv
+
 
 ############################################################
 ##                                                        ##
