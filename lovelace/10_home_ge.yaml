@@ -11,8 +11,10 @@ badges:
     image: /local/may.png    
   - entity: device_tracker.romainphone
     name: Romain
-    icon: mdi:letter-r-box-outline
-    
+    icon: mdi:emoticon-wink-outline
+  - entity: device_tracker.pierrophone
+    name: Pierre
+    image: /local/img/avatar/pierre.jpg  
 
 cards:
   - type: horizontal-stack
