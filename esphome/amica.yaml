@@ -6,6 +6,8 @@ esphome:
 wifi:
   ssid: !secret IOT_SSID
   password: !secret IOT_PWD
+  fast_connect: true
+
   manual_ip:
     static_ip: 192.168.1.200
     gateway: 192.168.1.1
@@ -25,33 +27,39 @@ i2c:
 
 font:
   - file: "arial.ttf"
-    id: my_font
+    id: arial_10
     size: 10
-
+  - file: "arial.ttf"
+    id: arial_14
+    size: 14
+  - file: "arial.ttf"
+    id: arial_20
+    size: 20
   - file: 'digital-7.ttf'
     id: digital
     size: 25
 
-
 time:
   - platform: homeassistant
     timezone: Europe/Paris
-    id: sntp_time_fr
-  # - platform: sntp
-  #   timezone: Asia/Manila
-  #   id: sntp_time_ph
     
 sensor:
+  # salon
   - platform: homeassistant
-    id: inside_temperature
+    id: temp_inside
     entity_id: sensor.temperature_15
     internal: true
-
+  # dehors
   - platform: homeassistant
-    id: outside_temperature
+    id: temp_outside
     entity_id: sensor.temperature_8
     internal: true
-  
+  # debroom
+  - platform: homeassistant
+    id: temp_debroom
+    entity_id: sensor.temperature_3
+    internal: true
+  # france_coronavirus_confirmed
   - platform: homeassistant
     id: covid_french_current
     entity_id: sensor.france_coronavirus_confirmed
@@ -60,14 +68,23 @@ sensor:
 text_sensor:
   - platform: homeassistant
     id: worldclock_manila
-    entity_id: sensor.manila
+    entity_id: sensor.worldclock_manila
+    internal: true
+  - platform: homeassistant
+    id: worldclock_paris
+    entity_id: sensor.worldclock_paris
     internal: true
 
 image:
-  - file: "image.png"
-    id: my_image
-    resize: 100x100    
-    
+  - file: "./img/mdi/bed-outline.png"
+    id: mdi_bed
+  - file: "./img/mdi/home-thermometer-outline.png"
+    id: mdi_home
+  - file: "./img/mdi/home-city-outline.png"
+    id: mdi_city
+  - file: "./img/mdi/virus.png"
+    id: mdi_virus
+
 display:
   - platform: ssd1306_i2c
     model: "SSD1306 128x64"
@@ -75,39 +92,39 @@ display:
     address: 0x3C
     id: my_display
     pages:
+      # 
+      # worldclock_paris & worldclock_manila
+      # 
       - id: page1
         lambda: |-
-          it.print(0, 0, id(my_font), "Bordeaux");
-          it.strftime(60, 11, id(digital), TextAlign::TOP_CENTER, "%H:%M", id(sntp_time_fr).now());
-          it.print(0, 30, id(my_font), "Ozamiz");     
-          it.printf(60, 44, id(digital), TextAlign::TOP_CENTER, "%s", id(worldclock_manila).state.c_str());      
-      # - id: page2
-      #   lambda: |-
-      #     it.printf(0, 10, id(my_font), "The data is: %s", id(worldclock_manila).state.c_str());
+          it.print(0, 0, id(arial_10), "Bordeaux");
+          it.printf(60, 13, id(digital), TextAlign::TOP_CENTER, "%s", id(worldclock_paris).state.c_str());
+          it.print(0, 30, id(arial_10), "Ozamiz");     
+          it.printf(60, 44, id(digital), TextAlign::TOP_CENTER, "%s", id(worldclock_manila).state.c_str());
+      # 
+      # weather
+      #      
+      - id: page2
+        lambda: |-
+          it.image(0, 10, id(mdi_bed));
+          it.printf(18, 46, id(arial_14), TextAlign::TOP_CENTER , "%.0f °C", id(temp_debroom).state);
 
-      #    it.print(0, 10, id(my_font), "This is page 2!");
-      # - id: page3
-      #   lambda: |-          
-      #     if (id(outside_temperature).state == id(outside_temperature).state) {
-      #       it.printf(127, 23, id(my_font), TextAlign::TOP_RIGHT , "outside %.0f °C", id(outside_temperature).state);
-      #     } else {
-      #       it.print(127, 23, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      #     }
-          
-      #     if (id(inside_temperature).state == id(inside_temperature).state) {
-      #       it.printf(127, 37, id(my_font), TextAlign::TOP_RIGHT , "inside %.0f °C", id(inside_temperature).state);
-      #     } else {
-      #       it.print(127, 37, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      #     }
+          it.image(46, 10, id(mdi_home));
+          it.printf(68, 46, id(arial_14), TextAlign::TOP_CENTER , "%.0f °C", id(temp_inside).state);
 
-      #     if (id(covid_french_current).state == id(covid_french_current).state) {
-      #       it.printf(127, 50, id(my_font), TextAlign::TOP_RIGHT , "COVID-19 %.0f", id(covid_french_current).state);
-      #     } else {
-      #       it.print(127, 50, id(font3), TextAlign::TOP_RIGHT , "...waiting...");
-      #     }  
-    
+          it.image(92, 10, id(mdi_city));
+          it.printf(110, 46, id(arial_14), TextAlign::TOP_CENTER , "%.0f °C", id(temp_outside).state);
+      # 
+      # extra (corona Virus)
+      #
+      - id: page3
+        lambda: |-   
+          it.image(0, 10, id(mdi_virus));   
+          it.printf(74, 20, id(arial_20), TextAlign::TOP_CENTER , "%.0f", id(covid_french_current).state);
+          it.print(68, 35, id(arial_20), TextAlign::TOP_CENTER , "cas");      
+
 interval:
   - interval: 5s
     then:
       - display.page.show_next: my_display
-      - component.update: my_display      
+      - component.update: my_display    
