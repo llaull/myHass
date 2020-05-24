@@ -5,9 +5,15 @@ path: outside
 badges:
   - entity: sensor.worldwide_coronavirus_current
     name: COVID-19 world
+
   - entity: sensor.philippines_coronavirus_current
     name: COVID-19 Philippines
 
+  - entity: sensor.freebox_download_speed
+    name: download
+
+  - entity: sensor.freebox_upload_speed
+    name: upload
 
 type: vertical-stack
 cards:
@@ -17,9 +23,9 @@ cards:
 
   - type: horizontal-stack
     cards:
-      - type: custom:aftership-card
-        entity: sensor.aftership
-        title: Packages
+      # - type: custom:aftership-card
+      #   entity: sensor.aftership
+      #   title: Packages
 
       - type: custom:mini-graph-card
         icon: mdi:account-multiple-plus

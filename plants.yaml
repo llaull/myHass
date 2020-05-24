@@ -3,7 +3,7 @@
 Xiaomi_miflora_01:
   sensors:
     moisture: sensor.Xiaomi_miflora_01_moisture
-    battery: sensor.Xiaomi_miflora_01_battery
+    # battery: sensor.Xiaomi_miflora_01_battery
     temperature: sensor.Xiaomi_miflora_01_temperature
     conductivity: sensor.Xiaomi_miflora_01_conductivity
     brightness: sensor.Xiaomi_miflora_01_light_intensity
@@ -18,18 +18,32 @@ Xiaomi_miflora_01:
   max_brightness: 35000
   check_days: 3
 
-# sans plante mais util pour les infos de dehors
+
 Xiaomi_miflora_02:
   sensors:
-    battery: sensor.Xiaomi_miflora_02_battery
-    temperature: sensor.Xiaomi_miflora_02_temperature
-    brightness: sensor.Xiaomi_miflora_02_light_intensity
-  min_battery: 10
+    moisture: sensor.xiaomi_hhccjcy01_moisture
+    # battery: sensor.xiaomi_hhccjcy01_battery_level
+    temperature: sensor.xiaomi_hhccjcy01_temperature
+    conductivity: sensor.xiaomi_hhccjcy01_soil_conductivity
+    brightness: sensor.xiaomi_hhccjcy01_illuminance
+  min_moisture: 60
+  max_moisture: 80
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: 12
+  max_temperature: 25
 
-# place dans la SbD
+
 Xiaomi_miflora_03:
   sensors:
-    battery: sensor.Xiaomi_miflora_03_battery
-    temperature: sensor.Xiaomi_miflora_03_temperature
-    brightness: sensor.Xiaomi_miflora_03_light_intensity
-  min_battery: 10
+    moisture: sensor.xiaomi_hhccjcy02_moisture
+    # battery: sensor.xiaomi_hhccjcy02_battery_level
+    temperature: sensor.xiaomi_hhccjcy02_temperature
+    conductivity: sensor.xiaomi_hhccjcy02_soil_conductivity
+    brightness: sensor.xiaomi_hhccjcy02_illuminance
+  min_moisture: 20
+  max_moisture: 80
+  min_conductivity: 350
+  max_conductivity: 2000
+  min_temperature: -15
+  max_temperature: 25

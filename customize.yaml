@@ -46,3 +46,9 @@ sensor.temperature_15:
 plant.xiaomi_miflora_01:
   friendly_name: Groot the ficus
   entity_picture: /local/img/plant/groot.jpg
+
+plant.xiaomi_miflora_02:
+  friendly_name: Hortensia
+
+plant.xiaomi_miflora_03:
+  friendly_name: Strawberry

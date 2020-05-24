@@ -84,57 +84,57 @@
       - conductivity
       - battery
 
-  - platform: miflora
-    mac: C4:7C:8D:67:3C:F8
-    name: Xiaomi_miflora_02
-    force_update: true
-    median: 3
-    monitored_conditions:
-      - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery
+  # - platform: miflora
+  #   mac: C4:7C:8D:67:3C:F8
+  #   name: Xiaomi_miflora_02
+  #   force_update: true
+  #   median: 3
+  #   monitored_conditions:
+  #     - moisture
+  #     - light
+  #     - temperature
+  #     - conductivity
+  #     - battery
 
-  - platform: miflora
-    mac: C4:7C:8D:67:3B:BC
-    name: Xiaomi_miflora_03
-    force_update: false
-    median: 1
-    monitored_conditions:
-      - moisture
-      - light
-      - temperature
-      - conductivity
-      - battery            
+  # - platform: miflora
+  #   mac: C4:7C:8D:67:3B:BC
+  #   name: Xiaomi_miflora_03
+  #   force_update: false
+  #   median: 1
+  #   monitored_conditions:
+  #     - moisture
+  #     - light
+  #     - temperature
+  #     - conductivity
+  #     - battery            
 
-  - platform: synologydsm
-    name: MySyno
-    host: 192.168.1.6
-    username: !secret SYNO_USER
-    password: !secret SYNO_PWD
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up  
-      - network_down 
-      - volume_size_used
-      - volume_percentage_used
+  # - platform: synologydsm
+  #   name: MySyno
+  #   host: 192.168.1.6
+  #   username: !secret SYNO_USER
+  #   password: !secret SYNO_PWD
+  #   monitored_conditions:
+  #     - cpu_total_load
+  #     - memory_real_usage
+  #     - network_up  
+  #     - network_down 
+  #     - volume_size_used
+  #     - volume_percentage_used
 
-  - platform: synologydsm
-    name: MySynoCloud
-    host: !secret SYNO_CLOUD_IP 
-    port: 53506
-    ssl: false
-    username: !secret SYNO_USER
-    password: !secret SYNO_PWD
-    monitored_conditions:
-      - cpu_total_load
-      - memory_real_usage
-      - network_up  
-      - network_down
-      - volume_size_used
-      - volume_percentage_used
+  # - platform: synologydsm
+  #   name: MySynoCloud
+  #   host: !secret SYNO_CLOUD_IP 
+  #   port: 53506
+  #   ssl: false
+  #   username: !secret SYNO_USER
+  #   password: !secret SYNO_PWD
+  #   monitored_conditions:
+  #     - cpu_total_load
+  #     - memory_real_usage
+  #     - network_up  
+  #     - network_down
+  #     - volume_size_used
+  #     - volume_percentage_used
 
 # worldclock
   - platform: worldclock

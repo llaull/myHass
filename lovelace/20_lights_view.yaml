@@ -2,6 +2,11 @@ title: light
 icon: mdi:lightbulb-on-outline
 path: lights
 
+visible:
+  - user: b8a6ba29c0f94789bb3b8fd82169a9cd
+  - user: 7e24106d94a74e9b9219f3cc83658512
+  - user: 3df93144a4204089b93404c2f903a326
+  
 cards:
   - type: horizontal-stack
     cards:

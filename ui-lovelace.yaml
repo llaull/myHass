@@ -24,6 +24,16 @@ resources:
 
 title: Our smart home
 
+dashboards:
+  lovelace-generated: # Needs to contain a hyphen (-)
+    mode: yaml
+    # filename: notexist.yaml
+    title: Generated
+    # icon: mdi:tools
+    show_in_sidebar: true
+    require_admin: true
+
+    
 views:
   - !include lovelace/00_home_view.yaml
   - !include lovelace/10_home_ge.yaml

@@ -53,3 +53,4 @@ node-red/*
 
 # media files
 *.mp3
+freebox.conf

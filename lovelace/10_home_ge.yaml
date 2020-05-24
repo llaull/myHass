@@ -2,6 +2,11 @@ title: Home
 icon: mdi:home-assistant
 path: none
 
+visible:
+  - user: b8a6ba29c0f94789bb3b8fd82169a9cd
+  - user: 7e24106d94a74e9b9219f3cc83658512
+  - user: 3df93144a4204089b93404c2f903a326
+
 badges: 
   - entity: person.laul
     name: Laurent
@@ -9,12 +14,25 @@ badges:
   - entity: person.may
     name: May
     image: /local/may.png    
-  - entity: device_tracker.romainphone
-    name: Romain
-    icon: mdi:emoticon-wink-outline
+
   - entity: device_tracker.pierrophone
     name: Pierre
-    image: /local/img/avatar/pierre.jpg  
+    image: /local/img/avatar/pierre.jpg 
+
+  - entity: plant.xiaomi_miflora_01
+    name: Groot
+    icon: mdi:emoticon-wink-outline
+
+  - entity: plant.xiaomi_miflora_02
+    icon: "if (state === 'on') return 'mdi:shield-home'; else return 'mdi:shield-home-outline';"
+
+  - entity: plant.xiaomi_miflora_03
+    icon: '{{ states.plant.xiaomi_miflora_03.attributes.icon}}'
+
+  - entity: plant.xiaomi_miflora_03
+    state_icons:
+          "ok": "mdi:eye-off"
+          "probleme": "mdi:motion-sensor"
 
 cards:
   - type: horizontal-stack
@@ -101,5 +119,11 @@ cards:
     entity: media_player.maison
 
 #################################################################################
+  # - type: plant-status
+  #   entity: plant.xiaomi_miflora_01
+
   - type: plant-status
-    entity: plant.xiaomi_miflora_01
+    entity: plant.xiaomi_miflora_02
+
+  - type: plant-status
+    entity: plant.xiaomi_miflora_03

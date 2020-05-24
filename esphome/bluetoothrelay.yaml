@@ -1,0 +1,69 @@
+esphome:
+  name: bluetoothrelay
+  platform: ESP32
+  board: esp32doit-devkit-v1
+
+wifi:
+  ssid: !secret IOT_SSID
+  password: !secret IOT_PWD
+
+  manual_ip:
+    static_ip: 192.168.1.201
+    gateway: 192.168.1.1
+    subnet: 255.255.255.0
+    
+    
+captive_portal:
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+
+ota:
+
+esp32_ble_tracker:
+  # scan_interval: 900s
+
+sensor:
+  # ficus
+  - platform: xiaomi_hhccjcy01
+    mac_address: 'C4:7C:8D:65:EF:1F'
+    temperature:
+      name: "Xiaomi HHCCJCY00 Temperature"
+    moisture:
+      name: "Xiaomi HHCCJCY00 Moisture"
+    illuminance:
+      name: "Xiaomi HHCCJCY00 Illuminance"
+    conductivity:
+      name: "Xiaomi HHCCJCY00 Soil Conductivity"
+    battery_level:
+      name: "Xiaomi HHCCJCY00 Battery Level"
+# Hortensia      
+  - platform: xiaomi_hhccjcy01
+    mac_address: 'C4:7C:8D:67:3C:F8'
+    temperature:
+      name: "Xiaomi HHCCJCY01 Temperature"
+    moisture:
+      name: "Xiaomi HHCCJCY01 Moisture"
+    illuminance:
+      name: "Xiaomi HHCCJCY01 Illuminance"
+    conductivity:
+      name: "Xiaomi HHCCJCY01 Soil Conductivity"
+    battery_level:
+      name: "Xiaomi HHCCJCY01 Battery Level"
+  #strawberry 
+  - platform: xiaomi_hhccjcy01
+    mac_address: 'C4:7C:8D:67:3B:BC'
+    temperature:
+      name: "Xiaomi HHCCJCY02 Temperature"
+    moisture:
+      name: "Xiaomi HHCCJCY02 Moisture"
+    illuminance:
+      name: "Xiaomi HHCCJCY02 Illuminance"
+    conductivity:
+      name: "Xiaomi HHCCJCY02 Soil Conductivity"
+    battery_level:
+      name: "Xiaomi HHCCJCY02 Battery Level"
+

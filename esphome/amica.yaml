@@ -63,8 +63,8 @@ sensor:
   - platform: homeassistant
     id: covid_french_current
     entity_id: sensor.france_coronavirus_confirmed
-    internal: true
-
+    internal: true          
+          
 text_sensor:
   - platform: homeassistant
     id: worldclock_manila
@@ -74,6 +74,15 @@ text_sensor:
     id: worldclock_paris
     entity_id: sensor.worldclock_paris
     internal: true
+
+# push alarm
+# binary_sensor:
+#   - platform: gpio
+#     name: "Living Room Window"
+#     pin:
+#       number: 16
+#       inverted: True
+#       mode: INPUT_PULLUP
 
 image:
   - file: "./img/mdi/bed-outline.png"
